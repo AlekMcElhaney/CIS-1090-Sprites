@@ -17,13 +17,31 @@ function setup(sprites) {
     dead = false;
 
     //Make sprite zero a little person at 0,0
-    sprites[0].image = "🧍‍♂️";
+    sprites[0].image = "🕺🏾";
     sprites[0].x = 0;
     sprites[0].y = 0;
 
-    //Sprites 1,2,3 are badgers
+    //Sprites 1,2,3 are food items
     for (let i = 1; i < 4; i++) {
-        sprites[i].image = "🦡";
+        sprites[i].image = "🥛";
+        sprites[i].y = 0;
+        sprites[i].x = 300 * i; //Spread 300px apart
+    }
+
+    for (let i = 1; i < 4; i++) {
+        sprites[i].image = "🍠";
+        sprites[i].y = 0;
+        sprites[i].x = 300 * i; //Spread 300px apart
+    }
+
+    for (let i = 1; i < 4; i++) {
+        sprites[i].image = "🐂";
+        sprites[i].y = 0;
+        sprites[i].x = 300 * i; //Spread 300px apart
+    }
+
+    for (let i = 1; i < 4; i++) {
+        sprites[i].image = "🥬";
         sprites[i].y = 0;
         sprites[i].x = 300 * i; //Spread 300px apart
     }
@@ -76,7 +94,7 @@ function frame(sprites, t, dt, up, down, left, right, space) {
         //If we are moving left or right
         if (sprites[0].y > 0) {
             //In the air? Always a running man
-            sprites[0].image = "🏃‍♂️";
+            sprites[0].image = "";
         } else {
             //Otherwise swap between two poses
             sprites[0].image = (Math.round(t * 10) % 2) ? "🚶" : "🏃‍♂️";
